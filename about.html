@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Travel Recommendation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="travel.css">
+</head>
+<body class="min-h-screen bg-cover bg-center bg-fixed travel-body">
+    <div class="fixed inset-0 bg-black bg-opacity-50 -z-10"></div>
+
+    <nav class="bg-gray-800/90">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-white font-bold text-xl">Travel Guide</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button type="button" class="text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                        <span class="sr-only">Open main menu</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="hidden md:block">
+                    <div class="flex items-center">
+                        <div class="flex space-x-4">
+                            <a href="index.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                            <a href="about.html" class="text-white px-3 py-2 rounded-md text-sm font-medium">About Us</a>
+                            <a href="contact.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact Us</a>
+                        </div>
+                        <div class="ml-4 flex items-center">
+                            <div class="flex space-x-2">
+                                <input id="conditionInput" type="search" placeholder="Enter a destination or keyword" class="w-96 px-4 py-2 rounded-md border border-gray-600 bg-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                <button type="submit" class="px-4 py-2 border border-transparent rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Search</button>
+                                <button type="reset" class="px-4 py-2 border border-gray-600 rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-gray-500">Reset</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="relative">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+            <!-- Search Results Section -->
+            <div id="searchResults" class="hidden relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
+                <div class="bg-white/80 backdrop-blur-sm rounded-lg p-8">
+                    <h2 class="text-3xl font-semibold text-gray-800 mb-6">Search Results</h2>
+                    <div id="resultsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Results will be dynamically inserted here -->
+                        <!-- Example Result Card Template -->
+                        <div class="hidden" id="resultCardTemplate">
+                            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                                <img src="" alt="" class="w-full h-48 object-cover">
+                                <div class="p-4">
+                                    <h3 class="text-xl font-semibold text-gray-800"></h3>
+                                    <p class="text-gray-600 mt-2"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- No Results Message -->
+                    <div id="noResults" class="hidden text-center py-8">
+                        <p class="text-xl text-gray-600">No results found. Try a different search term.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Mission Section -->
+            <div class="bg-white/80 rounded-lg p-8 backdrop-blur-sm mb-8">
+                <h1 class="text-4xl font-bold text-gray-900 mb-6 text-center">About Us</h1>
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-semibold text-gray-800 mb-4 text-center">Our Mission</h2>
+                    <p class="text-xl text-gray-700 text-center leading-relaxed">
+                        We are dedicated to helping travelers discover the world's most amazing destinations. 
+                        Our mission is to provide personalized travel recommendations that match your interests and preferences.
+                    </p>
+                </div>
+            </div>
+
+            <!-- What We Offer Section -->
+            <div class="bg-white/80 rounded-lg p-8 backdrop-blur-sm mb-8">
+                <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">What We Offer</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="p-6 bg-blue-50 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3">Personalized Recommendations</h3>
+                        <p class="text-gray-700">Tailored travel suggestions based on your preferences and interests.</p>
+                    </div>
+                    <div class="p-6 bg-blue-50 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3">Expert Guides</h3>
+                        <p class="text-gray-700">Comprehensive destination guides written by experienced travelers.</p>
+                    </div>
+                    <div class="p-6 bg-blue-50 rounded-lg">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-3">Local Insights</h3>
+                        <p class="text-gray-700">Hidden gems and authentic experiences recommended by locals.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Team Section -->
+            <div class="bg-white/80 rounded-lg p-8 backdrop-blur-sm">
+                <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">Our Team</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Team Member 1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500" 
+                             alt="John Smith" 
+                             class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800">John Smith</h3>
+                            <p class="text-blue-600 font-medium mb-3">Travel Director</p>
+                            <p class="text-gray-600">15+ years of experience in crafting unique travel experiences across Europe and Asia.</p>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500" 
+                             alt="Sarah Johnson" 
+                             class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800">Sarah Johnson</h3>
+                            <p class="text-blue-600 font-medium mb-3">Destination Expert</p>
+                            <p class="text-gray-600">Specializes in adventure travel and off-the-beaten-path destinations in South America.</p>
+                        </div>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500" 
+                             alt="Michael Chen" 
+                             class="w-full h-56 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800">Michael Chen</h3>
+                            <p class="text-blue-600 font-medium mb-3">Local Guide Coordinator</p>
+                            <p class="text-gray-600">Expert in cultural tourism with deep knowledge of Asian destinations and traditions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="travel.js"></script>
+</body>
+</html>
